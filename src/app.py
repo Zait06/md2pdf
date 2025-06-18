@@ -24,7 +24,7 @@ def get_parser():
         "-s",
         help="style sheet CSS",
         required=False,
-        default="./styles/default.css",
+        default="../styles/default.css",
     )
     parser.add_argument(
         "--html", help="Save the auxiliar HTML file", action="store_true"
