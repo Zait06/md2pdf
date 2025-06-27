@@ -1,18 +1,43 @@
-body {
-  font-family: Calibri, sans-serif;
-  font-size: 12pt;
-  line-height: 1.5;
-  margin: 40px;
-  color: #333;
+@page {
+  margin: 1in;
 }
 
-h1, h2, h3 {
+body {
+  font-family: Calibri, sans-serif;
+  background-color: white;
+  line-height: 1.5;
+  color: black;
+  text-align: justify;
+}
+
+.front-page {
+  display: flex;
+  justify-content: center; /* Horizontal */
+  align-items: center; /* Vertical */
+  height: 100vh; /* Full screen height */
   text-align: center;
+  flex-direction: column; /* Stack content vertically */
+}
+
+p,
+li {
+  font-size: 12px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .mermaid {
   text-align: center;
   margin: 2em 0;
+  font-family: Calibri, sans-serif;
+  font-size: 12px;
 }
 
 .page-break {

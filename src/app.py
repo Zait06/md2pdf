@@ -52,6 +52,7 @@ def get_parser():
 
     return parser
 
+
 def convert_mermaid_blocks(md_text: str) -> str:
     """Convert Mermaid code blocks to <div class="mermaid">...</div>
 
@@ -67,6 +68,7 @@ def convert_mermaid_blocks(md_text: str) -> str:
         md_text,
         flags=re.DOTALL,
     )
+
 
 def export_task(**kwargs) -> None:
     try:
@@ -93,12 +95,11 @@ def export_task(**kwargs) -> None:
                     # You can also just skip it if you don't want it in the HTML at all
                     # Example: filtered_lines.append("")
                     header_html = "<h{0}>{1}</h{0}>"
-                    new_line = re.sub(r"\s*<!-- omit in toc -->", "", line)
-                    new_line = new_line.strip()
+                    new_line = re.sub(r"\s*<!-- omit in toc -->", "", line).strip()
                     header = new_line.split(maxsplit=1)
-                    size = len(header[0])
-                    new_line = header_html.format(size, header[1])
-                    filtered_lines.append(new_line)  # keep in HTML, omit from TOC
+                    filtered_lines.append(
+                        header_html.format(len(header[0]), header[1])
+                    )  # keep in HTML, omit from TOC
                 else:
                     filtered_lines.append(line)
             md_content = "\n".join(filtered_lines)
@@ -144,7 +145,7 @@ def export_task(**kwargs) -> None:
         if not kwargs["html"]:
             os.remove(html_output_file)
 
-        print("✅ Exported PDF with rendered Mermaid diagram to output.pdf")
+        print("✅ PDF exported")
     except Exception as e:
         print(f"Error: {e}")
 
