@@ -24,3 +24,9 @@ options:
   --format {Letter,Legal,Tabloid,Ledger,A0,A1,A2,A3,A4,A5,A6}, -f {Letter,Legal,Tabloid,Ledger,A0,A1,A2,A3,A4,A5,A6}
                         Format file
 ```
+
+## Example
+
+```sh
+python src/app.py path/document.md --output_dir path/output
+```
